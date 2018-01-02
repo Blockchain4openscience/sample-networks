@@ -1,4 +1,6 @@
 # demo for force11 workshop
+
+This demo was developed by julius faber @djudjuu
 simple system to publish hashed hypotheses
 
 requires to install [truffle](http://truffleframework.com/)
