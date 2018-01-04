@@ -10,13 +10,19 @@ contract DocumentRegistry {
     // mapping to save all Documents associated to this registry
     mapping (address => bool) public documentExists;
 
+    // mapping to save all Documents associated to one author-address
+    mapping (address => address[]) public allDocs;
+
     // event to notify about the creation of a new Document
     event newDocumentCreated(address owner, address documentAddress);
 
     // function to be called to create a new Document
     // @param _hypothesis: sha3-hash of the hypothesis in clear text
    function createDocument(bytes32 _hypothesis) returns(address){
-
+       Document doc = new Document(_hypothesis, msg.sender);
+       documentExists[address(doc)] = true;
+       allDocs[msg.sender].push(address(doc));
+       newDocumentCreated(msg.sender, address(doc));
    }
 
    //optional features:
