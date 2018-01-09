@@ -2,9 +2,12 @@
  * My commodity trading network
  */
 namespace org.acme.cite
-asset BibRef identified by bibRefId {
-    o String bibRefId
-    o String description
+asset BibRef identified by DOI {
+    o String DOI
+    o String title
+    o String journalName
+    o Integer volume
+    o Integer number
     o Integer citations
     --> Researcher owner
 }
@@ -12,9 +15,15 @@ participant Researcher identified by resId {
     o String resId
     o String firstName
     o String lastName
+    o Integer reward
 }
 transaction Cite {
+    o Integer iniPage
+    o Integer finPage
+    o String pieceTxt
+    o String reason
     --> BibRef bibRef
     --> Researcher citer
 }
+
 
