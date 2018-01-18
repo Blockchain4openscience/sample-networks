@@ -1,0 +1,3 @@
+[submodule "nanopublications/Guidelines"]
+	path = nanopublications/Guidelines
+	url = https://github.com/Nanopublication/Guidelines.git
